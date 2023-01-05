@@ -7,7 +7,7 @@ const Test=()=>{
 return(
     <div>
         <NavBar/>
-        <div>
+        <div className="row">
         <FiltersAndSortBar/>
         <ShowMain/>
         </div>
