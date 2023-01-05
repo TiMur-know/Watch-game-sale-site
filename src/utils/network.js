@@ -45,4 +45,4 @@ export function fetchData(url) {
         .catch((err) => dispatch(apiError(err.message)));
     };
   }
-  
+  export default fetchData

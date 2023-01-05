@@ -1,6 +1,6 @@
 import initialState from "./initialState";
 import {SET_API_LOADING,SET_API_ERROR,SET_API_SUCCESS} from '../actions'
-export const getAPI = (state = initialState.Api, action) => {
+const getAPI = (state = initialState.Api, action) => {
     switch (action.type) {
       case SET_API_LOADING:
         return {
@@ -25,4 +25,4 @@ export const getAPI = (state = initialState.Api, action) => {
         return state;
     }
   };
-  
+export default getAPI;

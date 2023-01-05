@@ -12,8 +12,6 @@ function GetDatas (str){
  else if(str==="all")
  url="http://localhost:3001/api/all"
  //let res =get_data(url).then(result=>result,"")
- let res=get_data(url)
- return res
 }
 
 export default GetDatas;

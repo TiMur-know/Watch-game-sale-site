@@ -10,17 +10,21 @@ import Footer from './component/Footer';
 import { Get_data, get_data } from './utils/functions';
 import { getApiResources } from './utils/network';
 import Routeres from './component/Routings';
+import Test from './component/Test';
+import ShowMain from './component/ShowMain';
+import NavBar from './component/NavBar';
 const App=()=> {
   return (
     <div className="container-fluid">
       <Provider store={store}>
-        
-      <Menu/>
+        <div>
+      <Router>
+      <NavBar/>
       <div className='row'>
         
       <FiltersAndSortBar />
       
-      <Router>
+      {/*<Router>
       <Routes >
                 <Route index path="/" element={<Routeres filter="all"/>}/>
                 <Route path="/steam" element={<Routeres filter="steam"/>} />
@@ -28,10 +32,12 @@ const App=()=> {
                 <Route path="/gog" element={<Routeres filter="gog"/>} />
                 <Route path="/origin" element={<Routeres filter="origin"/>} />
             </Routes>
+  </Router>*/}
+            <ShowMain/>
+            </div>
             </Router>
-            
       </div>
-      <Footer/>
+    <Footer/>
       </Provider>
     </div>
     

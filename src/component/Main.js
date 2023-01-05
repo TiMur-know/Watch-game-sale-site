@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { genreFilter } from "../utils/functions";
 import { redGen,getUnique } from "../utils/functions";
 import Game from "./Game";
-import GetData from "./GetData";
+import GetData from "./GetDatas";
 import Plate from "./Plate";
 import Plater from "./Plater";
 

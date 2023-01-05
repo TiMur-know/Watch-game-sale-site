@@ -1,4 +1,4 @@
-import { orderByAsc, orderByName, ORDER_BY_ASC, ORDER_BY_NAME } from "../redux/actions";
+import { setOrderName, setOrderAsc, ORDER_BY_ASC, ORDER_BY_NAME } from "../redux/actions";
 import { useState } from "react";
 import { connect } from "react-redux";
 import {  orders } from "../data/data";
@@ -45,8 +45,8 @@ const mapStateToProps=(state)=>({
 })
 const mapDispatchToProps=(dispatch)=>{
   return{
-    setName:(name)=>dispatch(),
-    setAsc:(asc)=>dispatch()
+    setName:(name)=>dispatch(setOrderName(name)),
+    setAsc:(asc)=>dispatch(setOrderAsc(asc))
   }
 }
 export default connect(null,mapDispatchToProps)(Sort);

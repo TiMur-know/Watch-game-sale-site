@@ -1,10 +1,11 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
-import { Route,Routes } from "react-router-dom"
+
 import getApiData from "../utils/network"
 import ListComp from "./ListComp"
-import Main from "./Main"
+
 import {getGenresFromGame} from '../utils/functions'
+import { getGamesForServer, getGenresForServer } from "../redux/actions"
 
 /*{
     <Routes >
@@ -17,14 +18,15 @@ import {getGenresFromGame} from '../utils/functions'
 }*/
 const Routings=(props)=>{
     let ht="http://"
-    let site="localhost:3001/api/"
-    let filter=props.filter;
-    let d=ht+site+filter
-    const {data,loading,error,setGames,setGenres}=props
+    let site="localhost:3001/api/"    
+    const {data,loading,error,setGames,setGenres,filter}=props
+    let url=ht+site+filter
+    console.log(filter)
+
     useEffect(()=>{
-        let {getApiData}=props;
-        getApiData(d)
-    },[])
+        let {getData}=props;
+        getData(url)
+    },[filter])
     if(loading) return (<h3>Loading...</h3>)
     else{
         if(data.length!==[].length){
@@ -47,9 +49,9 @@ const mapStateToProps=(state,ownProps)=>({
 });
 const mapDispatchToProps=(dispatch)=>{
     return {
-        getData:url=>dispatch(),
-        setGames:data=>dispatch(),
-        setGenres:genres=>dispatch(),
+        getData:url=>dispatch(getApiData(url)),
+        setGames:data=>dispatch(getGamesForServer(data)),
+        setGenres:genres=>dispatch(getGenresForServer(genres)),
       }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Routings) 

@@ -7,7 +7,7 @@
     small_image:"",medium_image:"",shop:"shop"}
 ],
     genres:[],
-    genreList:[],
+    genreFilters:[],
     orderBy:{
         name:"",
         asced:""

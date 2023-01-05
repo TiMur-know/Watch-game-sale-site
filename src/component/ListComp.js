@@ -28,7 +28,7 @@ const ListComp=(props)=>{
 const mapStateToProps = (state)=>{
     const genres =state.genresFilter;
     const orderBy=state.orderBy;
-    const games=state.games;
+    const games=state.gameList;
     const filterByGenre=genreFilter(games,genres)
     const filterByOrder=order(filterByGenre,orderBy) 
     return {games:filterByOrder}

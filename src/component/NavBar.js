@@ -1,6 +1,6 @@
 import { Router,Link } from "react-router-dom"
 const NavBar=()=>{
-    return(<Router>
+    return(
         <header>
         <nav>
             <ul className="nav">
@@ -12,6 +12,7 @@ const NavBar=()=>{
             </ul>
         </nav>
             </header>
-        </Router>)
+)
+        
 }
 export default NavBar
