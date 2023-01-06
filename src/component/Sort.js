@@ -33,7 +33,7 @@ const handleAscChange=(e)=>{
     <select className="form-select" aria-label=".form-select-sm example" onChange={handleNameChange}>
       <option selected value="">Select order name</option>
       {orders.map(order=>(
-      <option value={order}>{order}</option>
+      <option value={order.value}>{order.name}</option>
     ))}
     </select>
     </div>

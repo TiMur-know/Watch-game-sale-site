@@ -1,4 +1,5 @@
 /*redGenres functions */ 
+
 export const redGen=(gen)=>{
     
   if(gen[0]!=null||undefined||''||""){
@@ -24,18 +25,19 @@ export const getGenresFromGame=(games)=>{
 /*In functions */
 
 /*ListComp functions */
-export const genreFilter = (arr, gen) => {
-  console.log(arr)
-  console.log(gen)
-  console.log(gen.length==0)
-  if(gen.length===0) return arr;
-  return arr.filter(({name: arre}) => arre.some(n=>gen.includes(n)));
+export const genreFilter = (games, gen) => {
+  if(gen.length===0) return games;
+
+  let result = games.filter(({genres: arr}) => arr.some(tag => gen.includes(tag)));
+  console.log(result)
+  return result
+
 }
 
 export const order=(arr,order)=>{
-  if(!order.asc||!order.name) return arr;
+  if(!order.asced||!order.name) return arr;
   else
-    return sorted(sortBy([order.name],arr),order.asc)
+    return sorted(sortBy([order.name],arr),order.asced)
   
 }
 /*Order functions*/

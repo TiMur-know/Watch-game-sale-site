@@ -33,7 +33,7 @@ const Routings=(props)=>{
             setGames(data);
             setGenres(getGenresFromGame(data))
         }
-        else if(error!=='') return (<h3>{error}</h3>)
+        /*else if(error!=='') return (<h3>{error}</h3>)*/
         return(
             <ListComp/>
         )

@@ -1,13 +1,13 @@
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { genreFilter, order } from "../utils/functions";
 import Plate from "./Plate";
 import Plater from "./Plater";
 
 const ListComp=(props)=>{
-    let games=props.games;
+    const {games}=props
     return (
         <div className="col-md-6 mb-4">
-            <div>This work</div>
         <div className="row">
             {/*games.map(gam=><Plater game={gam}/>)*/}
             {games.map(game=>< Plate 
@@ -26,11 +26,11 @@ const ListComp=(props)=>{
     )
 }
 const mapStateToProps = (state)=>{
-    const genres =state.genresFilter;
-    const orderBy=state.orderBy;
-    const games=state.gameList;
+    const genres =state.genresFilter.slice();
+    const orderBy= state.orderBy;
+    const games=state.gameList.slice()
     const filterByGenre=genreFilter(games,genres)
-    const filterByOrder=order(filterByGenre,orderBy) 
+    const filterByOrder=order(filterByGenre,orderBy)
     return {games:filterByOrder}
 }
 export default connect(mapStateToProps,null)(ListComp);

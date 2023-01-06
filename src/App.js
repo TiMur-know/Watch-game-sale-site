@@ -23,16 +23,6 @@ const App=()=> {
       <div className='row'>
         
       <FiltersAndSortBar />
-      
-      {/*<Router>
-      <Routes >
-                <Route index path="/" element={<Routeres filter="all"/>}/>
-                <Route path="/steam" element={<Routeres filter="steam"/>} />
-                <Route path="/epic-games" element={<Routeres filter="epic"/>} />
-                <Route path="/gog" element={<Routeres filter="gog"/>} />
-                <Route path="/origin" element={<Routeres filter="origin"/>} />
-            </Routes>
-  </Router>*/}
             <ShowMain/>
             </div>
             </Router>
