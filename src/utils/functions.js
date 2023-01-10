@@ -28,7 +28,8 @@ export const getGenresFromGame=(games)=>{
 export const genreFilter = (games, gen) => {
   if(gen.length===0) return games;
 
-  let result = games.filter(({genres: arr}) => arr.some(tag => gen.includes(tag)));
+  /*let result = games.filter(({genres: arr}) => arr.some(tag => gen.includes(tag)));*/
+  let result = games.filter( arr => gen.every( tag => arr.genres.includes(tag) ) );
   console.log(result)
   return result
 

@@ -2,8 +2,9 @@ import { Router,Link } from "react-router-dom"
 const NavBar=()=>{
     return(
         <header>
+            <div className="container-fluid">
         <nav>
-            <ul className="nav">
+            <ul className="nav ">
                 <li className="nav-item"><Link className='nav-link' to="/">Главная</Link></li>
                 <li className="nav-item"><Link className='nav-link' to="/steam">Steam</Link></li>
                 <li className="nav-item"><Link className='nav-link' to="/epic-games">Epic Games</Link></li>
@@ -11,6 +12,7 @@ const NavBar=()=>{
                 <li className="nav-item"><Link className='nav-link' to="/uplay">Uplay</Link></li>
             </ul>
         </nav>
+        </div>
             </header>
 )
         

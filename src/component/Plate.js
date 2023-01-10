@@ -1,7 +1,9 @@
 import React from "react"
 
+
 function Plate(props) {
       return (
+
         <div className="col-sm-5 col-lg-3">
       <div className="card d-flex flex-column" >
         <img className="card-img-top w-100" src={props.img} alt="..."/>

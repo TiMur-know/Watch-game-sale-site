@@ -7,7 +7,7 @@ import Plater from "./Plater";
 const ListComp=(props)=>{
     const {games}=props
     return (
-        <div className="col-md-6 mb-4">
+        <div className="col-md-9 ">
         <div className="row">
             {/*games.map(gam=><Plater game={gam}/>)*/}
             {games.map(game=>< Plate 

@@ -40,9 +40,6 @@ const handleAscChange=(e)=>{
   </div>
  )
 }
-const mapStateToProps=(state)=>({
-
-})
 const mapDispatchToProps=(dispatch)=>{
   return{
     setName:(name)=>dispatch(setOrderName(name)),
