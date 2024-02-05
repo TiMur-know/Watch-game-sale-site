@@ -1,13 +1,24 @@
-import { SET_ORDER_ASC,SET_ORDER_NAME} from "../actions";
+import { CLEAR_FILTER, SET_ORDER_ASC,SET_ORDER_NAME} from "../actions";
 import initialState from "./initialState";
 
-const orderReducer=(state=initialState.orderBy,action)=>{
+const orderReducer=(state=Object.assign(initialState.orderBy),action)=>{
 
     switch(action.type){
         case SET_ORDER_NAME:
-            return action.name
+            return Object.assign({
+                name: action.name,
+                asced: state.asced
+            })
         case SET_ORDER_ASC:
-                return action.asced
+                return Object.assign({
+                    name:state.name,
+                    asced: action.asced
+                })
+                case CLEAR_FILTER:
+                    return Object.assign({
+                        name:'',
+                        asced: ''
+                    })
             default:
                 return state;
     }

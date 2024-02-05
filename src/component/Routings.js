@@ -1,10 +1,13 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
-import { Route,Routes } from "react-router-dom"
+
 import getApiData from "../utils/network"
 import ListComp from "./ListComp"
-import Main from "./Main"
+
 import {getGenresFromGame} from '../utils/functions'
+import { clearFilters, getGamesForServer, getGenresForServer } from "../redux/actions"
+import LoadingPage from "./LoadingPage"
+import FiltersAndSortBar from "../container/FilterBar"
 
 /*{
     <Routes >
@@ -17,15 +20,15 @@ import {getGenresFromGame} from '../utils/functions'
 }*/
 const Routings=(props)=>{
     let ht="http://"
-    let site="localhost:3001/api/"
-    let filter=props.filter;
-    let d=ht+site+filter
-    const {data,loading,error,setGames,setGenres}=props
+    let site="localhost:3001/api/"    
+    const {data,loading,error,setGames,setGenres,filter,cleareFilters}=props
+    let url=ht+site+filter
     useEffect(()=>{
-        let {getApiData}=props;
-        getApiData(d)
-    },[])
-    if(loading) return (<h3>Loading...</h3>)
+        let {getData}=props;
+        getData(url)
+        cleareFilters()
+    },[filter])
+    if(loading) return (<LoadingPage/>)
     else{
         if(data.length!==[].length){
             setGames(data);
@@ -33,11 +36,12 @@ const Routings=(props)=>{
         }
         else if(error!=='') return (<h3>{error}</h3>)
         return(
+            <div className="row">
+            <FiltersAndSortBar />
             <ListComp/>
+            </div>
         )
     }
-    
-  /*  http://localhost:3001/api/steam*/
 }
 const mapStateToProps=(state,ownProps)=>({
     error:state.dataApi.error,
@@ -47,9 +51,10 @@ const mapStateToProps=(state,ownProps)=>({
 });
 const mapDispatchToProps=(dispatch)=>{
     return {
-        getData:url=>dispatch(),
-        setGames:data=>dispatch(),
-        setGenres:genres=>dispatch(),
+        getData:url=>dispatch(getApiData(url)),
+        setGames:data=>dispatch(getGamesForServer(data)),
+        setGenres:genres=>dispatch(getGenresForServer(genres)),
+        cleareFilters:()=>dispatch(clearFilters())
       }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Routings) 

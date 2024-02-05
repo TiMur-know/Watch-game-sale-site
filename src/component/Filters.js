@@ -7,7 +7,6 @@ const Filters=(props)=>{
 const handleSelectBox=(e)=>{
     const name=e.target.name;
     const {addGenre,deleteGenre}=props;
-    console.log(name)
     //e.target.checked ? dispatch(addGenreToFilter(name)): dispatch(removeGenreToFilter(name));
     e.target.checked ? addGenre(name): deleteGenre(name);
 }

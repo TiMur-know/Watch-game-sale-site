@@ -1,5 +1,4 @@
 import React from "react"
-import Game from "./Game"
 const Plater=(props)=> {
        const {
         name,

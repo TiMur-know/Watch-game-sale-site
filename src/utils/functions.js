@@ -1,5 +1,6 @@
 /*redGenres functions */ 
-const redGen=(gen)=>{
+
+export const redGen=(gen)=>{
     
   if(gen[0]!=null||undefined||''||""){
   gen=gen.toLowerCase().trim()
@@ -7,7 +8,7 @@ const redGen=(gen)=>{
   }
   return gen;
 }
-const getUnique = (arr) => {
+export const getUnique = (arr) => {
   return arr.filter((el, ind) => ind === arr.indexOf(el));
 };
 const replaceAt=(str,index, char)=> {
@@ -24,16 +25,20 @@ export const getGenresFromGame=(games)=>{
 /*In functions */
 
 /*ListComp functions */
-export const genreFilter = (arr, genres) => {
-  if(!genres) return arr;
-  return arr.filter(({name: arre}) => arre.some(n=>genres.includes(n)));
+export const genreFilter = (games, gen) => {
+  if(gen.length===0) return games;
+
+  /*let result = games.filter(({genres: arr}) => arr.some(tag => gen.includes(tag)));*/
+  let result = games.filter( arr => gen.every( tag => arr.genres.includes(tag) ) );
+  console.log(result)
+  return result
+
 }
 
 export const order=(arr,order)=>{
-  
-  if(!order.asc||!order.name) return arr;
+  if(!order.asced||!order.name) return arr;
   else
-    return sorted(sortBy([order.name],arr),order.asc)
+    return sorted(sortBy([order.name],arr),order.asced)
   
 }
 /*Order functions*/
