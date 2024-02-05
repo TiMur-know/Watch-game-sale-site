@@ -11,29 +11,19 @@ import ShowMain from './component/ShowMain';
 import NavBar from './component/NavBar';
 const App=()=> {
   return (
-    
       <Provider store={store}>
-        <div>
-        
-      <Router>
-      
+        <div className='App'>
+      <Router> 
       <NavBar/>
       <div className="container-fluid">
-      <div className='row'>
-        
-      <FiltersAndSortBar />
-            <ShowMain/>
 
-            
-            </div>
+      
+            <ShowMain/>
             </div>
             </Router>
-            
-    
     </div>
+    <Footer/>
       </Provider>
-    
-    
   );
 }
 

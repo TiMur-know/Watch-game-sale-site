@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { connect } from "react-redux";
 import { genreFilter, order } from "../utils/functions";
 import Plate from "./Plate";
@@ -7,10 +7,11 @@ import Plater from "./Plater";
 const ListComp=(props)=>{
     const {games}=props
     return (
-        <div className="col-md-9 ">
-        <div className="row">
+        <div className="col-md-9">
+        <div className="row g-2">
             {/*games.map(gam=><Plater game={gam}/>)*/}
             {games.map(game=>< Plate 
+            link={game.link}
             img={game.large_image}
             name={game.name} 
             percent={game.discount_percent} 

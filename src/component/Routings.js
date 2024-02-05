@@ -5,7 +5,9 @@ import getApiData from "../utils/network"
 import ListComp from "./ListComp"
 
 import {getGenresFromGame} from '../utils/functions'
-import { getGamesForServer, getGenresForServer } from "../redux/actions"
+import { clearFilters, getGamesForServer, getGenresForServer } from "../redux/actions"
+import LoadingPage from "./LoadingPage"
+import FiltersAndSortBar from "../container/FilterBar"
 
 /*{
     <Routes >
@@ -19,27 +21,27 @@ import { getGamesForServer, getGenresForServer } from "../redux/actions"
 const Routings=(props)=>{
     let ht="http://"
     let site="localhost:3001/api/"    
-    const {data,loading,error,setGames,setGenres,filter}=props
+    const {data,loading,error,setGames,setGenres,filter,cleareFilters}=props
     let url=ht+site+filter
-    console.log(filter)
-
     useEffect(()=>{
         let {getData}=props;
         getData(url)
+        cleareFilters()
     },[filter])
-    if(loading) return (<h3>Loading...</h3>)
+    if(loading) return (<LoadingPage/>)
     else{
         if(data.length!==[].length){
             setGames(data);
             setGenres(getGenresFromGame(data))
         }
-        /*else if(error!=='') return (<h3>{error}</h3>)*/
+        else if(error!=='') return (<h3>{error}</h3>)
         return(
+            <div className="row">
+            <FiltersAndSortBar />
             <ListComp/>
+            </div>
         )
     }
-    
-  /*  http://localhost:3001/api/steam*/
 }
 const mapStateToProps=(state,ownProps)=>({
     error:state.dataApi.error,
@@ -52,6 +54,7 @@ const mapDispatchToProps=(dispatch)=>{
         getData:url=>dispatch(getApiData(url)),
         setGames:data=>dispatch(getGamesForServer(data)),
         setGenres:genres=>dispatch(getGenresForServer(genres)),
+        cleareFilters:()=>dispatch(clearFilters())
       }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Routings) 

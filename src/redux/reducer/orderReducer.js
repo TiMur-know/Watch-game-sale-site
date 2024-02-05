@@ -1,4 +1,4 @@
-import { SET_ORDER_ASC,SET_ORDER_NAME} from "../actions";
+import { CLEAR_FILTER, SET_ORDER_ASC,SET_ORDER_NAME} from "../actions";
 import initialState from "./initialState";
 
 const orderReducer=(state=Object.assign(initialState.orderBy),action)=>{
@@ -14,6 +14,11 @@ const orderReducer=(state=Object.assign(initialState.orderBy),action)=>{
                     name:state.name,
                     asced: action.asced
                 })
+                case CLEAR_FILTER:
+                    return Object.assign({
+                        name:'',
+                        asced: ''
+                    })
             default:
                 return state;
     }

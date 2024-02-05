@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Link, Routes, Route} from 'react-router-dom'
+import ErrorPage from './ErrorPage';
 import Routings from './Routings';
 const ShowMain=()=>{
   return(
@@ -9,6 +10,7 @@ const ShowMain=()=>{
               <Route path="/epic-games" element={<Routings filter="epic"/>} />
               <Route path="/gog" element={<Routings filter="gog"/>} />
               <Route path="/origin" element={<Routings filter="origin"/>} />
+              <Route path="*" element={<ErrorPage/>} />
           </Routes>
 
           )

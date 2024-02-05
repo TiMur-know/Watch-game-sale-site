@@ -10,6 +10,12 @@ export const SET_API_SUCCESS = "SET_API_SUCCESS";
 export const SET_API_ERROR = "SET_API_ERROR";
 export const SET_ORDER_ASC = "SET_ORDER_ASC";
 export const SET_ORDER_NAME = "SET_ORDER_NAME";
+
+export const CLEAR_FILTER = "CLEAR_FILTER";
+export const clearFilters=()=>(
+  {
+  type:CLEAR_FILTER
+})
 export const getGamesForServer=(games)=>({
     type:GAMES_FOR_SERVER,
     games
@@ -18,7 +24,6 @@ export const getGenresForServer=(genres)=>({
     type:GENRE_FOR_SERVER,
     genres
 })
-
 export const addGenreToFilter=(genre)=>({
     type:ADD_GENRE_TO_FILTER,
     value:genre

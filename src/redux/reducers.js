@@ -6,6 +6,7 @@ import apiReducer from "./reducer/apiReducer"
 
 import siteReducer from "./reducer/shopReducer";
 const reducers=combineReducers({
+    
     dataApi:apiReducer,
     siteLink:siteReducer,
     genresFilter:genreReducer,

@@ -6,7 +6,6 @@ import store from "../redux/store";
 const Sort=(props)=>{
   /*let name="";
   let asc="";*/
-
 const handleAscChange=(e)=>{
   const value =e.target.value;
   /*asc=value;
@@ -21,6 +20,7 @@ const handleAscChange=(e)=>{
   const {setName}=props
   setName(value)
  }
+
  return (
   <div className="card">
     <div className="card-header"> <h6>Orders</h6></div>
